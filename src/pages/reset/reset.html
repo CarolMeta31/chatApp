@@ -1,0 +1,17 @@
+
+<ion-header>
+
+  <ion-navbar color="green">
+    <ion-title>reset</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item class="ion-Items">
+        <ion-label style="color:white" stacked>email:</ion-label>
+        <ion-input class="custom-input" type="email" placeholder="email address to reset password" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <button ion-button block clear (click)=" resetPassword()">reset password</button>
+</ion-content>

@@ -1,0 +1,30 @@
+page-rooms {
+    ion-content {
+        background-image: url("../assets/imgs/picture1.jpg");
+        // no-repeat center center fixed;
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+        // .item-md, .item-ios {
+        //   background: none;
+        // }
+    }
+   .items{
+   
+
+    width: 100%;
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 10px;
+  
+    box-sizing: border-box;
+   
+    border-radius: 4px;
+    background-color: rgba(32, 179, 44, 0.157);
+    font-size: 16px;
+    resize: none;
+  color:black;
+   }
+    
+}

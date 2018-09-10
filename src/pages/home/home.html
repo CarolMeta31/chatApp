@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color="green" >
+    <ion-title>
+      welcome
+    </ion-title>
+    
+    
+    <ion-buttons end>
+      
+      <button ion-button icon-only (click)="exitChat()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+      
+
+    </ion-buttons>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-list>
+     <ion-item text-wrap *ngFor="let chat of chats" no-lines>
+
+  <div class="chat-status" text-center *ngIf ="chat.type==='join' || chat.type==='exit' ;else Message">
+<span class="chat-date" >{{chat?.sendDate | date:'short'}}</span>
+<span class="chat-content-center">{{chat?.message}}</span>
+  </div>
+ 
+<ng-template #Message>
+
+    <div class="chat-message" text-right *ngIf="chat.user === userProfile.firstName">
+        <div class="right-bubble">
+      <span class="msg-name">Me:</span><br>
+        
+        <span text-wrap >{{chat?.message}}</span>
+        <span class="msg-date">{{chat?.sendDate | date: 'short'}}</span>
+      </div>
+    </div>
+
+    <div class="chat-message" *ngIf="chat.user !== userProfile.firstName">
+        <div class="left-bubble">
+      <span class="msg-name">{{chat?.firstName}}</span>
+        <span class="msg-date">{{chat?.sendDate | date:'short'}}</span>
+        <p text-wrap>{{chat?.message}}</p> 
+      </div>
+    </div>
+
+</ng-template>
+
+ </ion-item>
+   </ion-list>
+</ion-content>
+
+<ion-footer>
+       <ion-toolbar color="green">
+            <ion-grid>
+      
+      <ion-row> 
+        <ion-col col-md-10 class="input-icon"  text-right>
+            <ion-item class="input-icon" text-wrap>
+              <ion-icon name="attach" item-right></ion-icon> -->
+              <!-- <button ion-button icon-only clear>
+                  <ion-icon name="attach" ></ion-icon>
+                </button> -->
+          <ion-input  type="type" [(ngModel)]="data.message" placeholder="type a message" > 
+
+          </ion-input>  
+        </ion-item>
+</ion-col>
+
+
+        <ion-col col-2 (click)="sendMessage()" text-center >
+           
+          <button ion-button round  color="green">
+          <ion-icon name="paper-plane" ></ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-toolbar>
+
+    
+  </ion-footer>
